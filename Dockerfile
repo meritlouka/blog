@@ -1,6 +1,8 @@
 # syntax=docker/dockerfile:1
 FROM ruby:2.6.5
-RUN apt-get update -qq && apt-get install -y nodejs default-mysql-client
+RUN apt-get update -qq && apt-get install -y nodejs mariadb-client
+
+
 WORKDIR /myapp
 COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock

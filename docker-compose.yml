@@ -1,11 +1,17 @@
 version: "3.3"
 services:
   db:
-    image: mysql
+    image: mysql:5
     volumes:
-      - ./tmp/db:/var/lib/mysql/data
+      - ./tmp/db:/var/lib/mysql/
+    ports:
+     - "3330:3330"
     environment:
-      POSTGRES_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: "root-password"
+      DEFAULT_AUTHENTICATION_PLUGIN: mysql_native_password
+      MYSQL_DATABASE: blog_dev
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -15,3 +21,11 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    links:
+      - db
+    environment:
+      DB_USER: user
+      DB_NAME: blog_dev
+      DB_PASSWORD: password
+      DB_HOST: db
+
