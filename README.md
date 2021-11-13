@@ -41,6 +41,18 @@ Things you may want to cover:
 # query{
 #   posts{
 #     id title body
+#     comments(id: 1){
+#       id body
+#     }
+#   }
+# }
+
+# query{
+#   users(id: 1){
+#     id username
+#     posts{
+#       id body
+#     }
 #   }
 # }
 
@@ -65,6 +77,9 @@ Things you may want to cover:
 # query{
 #   comments{
 #     id  body
+#     reactions{
+#       id
+#     }
 #   }
 # }
 
@@ -86,7 +101,30 @@ Things you may want to cover:
 # }
 
 
-#query{
-#  userPosts(userId: 3) {
-#    id body title
-#  }
+# mutation{
+#   createReaction(
+#     input:
+#     {
+#     commentId: 1,
+#     name: 0
+#     }
+#   )
+#   {
+#     reaction{
+#       id name
+#       }
+#   }
+# }
+
+
+# mutation{
+#   deleteReaction(
+#     input:
+#     {
+#     reactionId: 1
+#     }
+#   ){
+#     success
+#   }
+
+# }

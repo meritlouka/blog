@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_11_192753) do
+ActiveRecord::Schema.define(version: 2021_11_13_211734) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "body"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 2021_11_11_192753) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "reactions", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.integer "name"
+    t.string "reactionable_type", null: false
+    t.bigint "reactionable_id", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["reactionable_type", "reactionable_id"], name: "index_reactions_on_reactionable_type_and_reactionable_id"
+    t.index ["user_id"], name: "index_reactions_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "username"
     t.string "email"
@@ -38,4 +49,5 @@ ActiveRecord::Schema.define(version: 2021_11_11_192753) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "reactions", "users"
 end
