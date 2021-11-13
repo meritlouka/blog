@@ -84,3 +84,9 @@ Things you may want to cover:
 #       }
 #   }
 # }
+
+
+#query{
+#  userPosts(userId: 3) {
+#    id body title
+#  }

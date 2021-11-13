@@ -9,7 +9,11 @@ module Types
     # Add root-level fields here.
     # They will be entry points for queries on your schema.
 
+
     field :posts, [PostType], null: true
+    field :users, [UserType], null: true do
+      argument :id, Integer, required: false
+    end
     field :comments, [CommentType], null: true
 
     def comments
@@ -18,6 +22,14 @@ module Types
 
     def posts
       Post.all
+    end
+
+    def users(id:)
+      if id
+        User.where(id: id)
+      else
+        User.all
+      end
     end
   end
 end
