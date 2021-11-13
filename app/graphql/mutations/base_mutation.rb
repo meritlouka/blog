@@ -7,4 +7,7 @@ module Mutations
     input_object_class Types::BaseInputObject
     object_class Types::BaseObject
   end
+  # class BaseMutation < GraphQL::Schema::Mutation
+  #   null false
+  # end
 end
