@@ -1,13 +1,13 @@
 module Mutations
-  class DeleteReaction < BaseMutation
+  class DeletePost < BaseMutation
     field :success, String, null: true
     field :errors, String, null: true
 
-    argument :reactionId, Integer, required: true
+    argument :postId, Integer, required: true
 
-    def resolve(reactionId:)
-      reaction = Reaction.find(reactionId)
-      if reaction && reaction.delete
+    def resolve(postId:)
+      post = Post.find(postId)
+      if post && post.delete
         {
           success: true,
           errors: [],

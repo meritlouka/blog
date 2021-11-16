@@ -2,6 +2,10 @@
 
 module Types
   class MutationType < Types::BaseObject
+    field :delete_comment, mutation: Mutations::DeleteComment
+    field :update_comment, mutation: Mutations::UpdateComment
+    field :update_post, mutation: Mutations::UpdatePost
+    field :delete_post, mutation: Mutations::DeletePost
     field :delete_reaction, mutation: Mutations::DeleteReaction
     field :create_reaction, mutation: Mutations::CreateReaction
     field :updatePost, mutation: Mutations::UpdatePost

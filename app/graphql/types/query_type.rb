@@ -10,7 +10,9 @@ module Types
     # They will be entry points for queries on your schema.
 
 
-    field :posts, [PostType], null: true
+    field :posts, [PostType], null: true do
+      argument :id, Integer, required: false
+    end
     field :users, [UserType], null: true do
       argument :id, Integer, required: false
     end
@@ -20,8 +22,12 @@ module Types
       Comment.all
     end
 
-    def posts
-      Post.all
+    def posts(id:)
+      if id
+        Post.where(id: id)
+      else
+        Post.all
+      end
     end
 
     def users(id:)
