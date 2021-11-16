@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 class BlogSchema < GraphQL::Schema
+  use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new
   mutation(Types::MutationType)
   query(Types::QueryType)
+  subscription(Types::SubscriptionType)
 
   # Union and Interface Resolution
   def self.resolve_type(_abstract_type, _obj, _ctx)

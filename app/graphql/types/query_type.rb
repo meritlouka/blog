@@ -18,6 +18,12 @@ module Types
     end
     field :comments, [CommentType], null: true
 
+    field :links, [LinkType], null: false
+
+    def links
+      Link.order(created_at: :desc)
+    end
+
     def comments
       Comment.all
     end
