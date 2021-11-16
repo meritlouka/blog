@@ -20,7 +20,7 @@ Things you may want to cover:
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
-
+```
 * ...
 # 1 - Fetch / list all posts made by one user
 # query{
@@ -163,4 +163,4 @@ Things you may want to cover:
 #   }
 # }
 
-
+```
