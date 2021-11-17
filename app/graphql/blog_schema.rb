@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class BlogSchema < GraphQL::Schema
-  use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new
+ # use GraphQL::Subscriptions::ActionCableSubscriptions, redis: Redis.new
   mutation(Types::MutationType)
   query(Types::QueryType)
   subscription(Types::SubscriptionType)
