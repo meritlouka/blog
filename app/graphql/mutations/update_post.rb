@@ -9,6 +9,7 @@ module Mutations
     def resolve(postId: postId, title: title, body: body)
       post = Post.find(postId)
       saved = post.update(title: title, body: body)
+
       if saved
         {
           post: post,
