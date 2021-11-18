@@ -21,7 +21,7 @@ module Mutations
 
           expect(data).to include(
             "reaction" => {
-              'name'            => 0
+              'name' => Reaction.last.name
             }
           )
         end
