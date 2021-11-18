@@ -11,7 +11,7 @@ module Mutations
           end.to change { Post.count }.by(1)
         end
 
-        it 'returns a book' do
+        it 'returns a post' do
           user = create(:user)
           post '/graphql', params: { query: query(title: "title Post", body: "body Post") }
           json = JSON.parse(response.body)
