@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 module Mutations
@@ -8,10 +10,10 @@ module Mutations
           user = create(:user)
           post = create(:post)
           comment = create(:comment, post: post)
-          post '/graphql', params: { query: query(commentId: comment.id, body: "body Comment update") }
+          post '/graphql', params: { query: query(commentId: comment.id, body: 'body Comment update') }
 
           expect(comment.reload).to have_attributes(
-            'body'            => 'body Comment update',
+            'body' => 'body Comment update'
           )
         end
 
@@ -19,13 +21,13 @@ module Mutations
           user = create(:user)
           post = create(:post)
           comment = create(:comment, post: post)
-          post '/graphql', params: { query: query(commentId: comment.id, body: "body Comment update") }
+          post '/graphql', params: { query: query(commentId: comment.id, body: 'body Comment update') }
           json = JSON.parse(response.body)
           data = json['data']['updateComment']
 
           expect(data).to include(
-            "comment" => {
-              'body'            => 'body Comment update',
+            'comment' => {
+              'body' => 'body Comment update'
             }
           )
         end

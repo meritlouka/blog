@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class UpdatePost < BaseMutation
     field :post, Types::PostType, null: false
@@ -11,9 +13,10 @@ module Mutations
       saved = post.update(title: title, body: body)
 
       if saved
+        BlogSchema.subscriptions.trigger('postUpdated', {}, post)
         {
           post: post,
-          errors: [],
+          errors: []
         }
       else
         {

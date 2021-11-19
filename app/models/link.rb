@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class Link < ApplicationRecord
-    after_save :notify_subscriber_of_addition
+  after_save :notify_subscriber_of_addition
 
-    private
+  private
 
-    def notify_subscriber_of_addition
-        GraphqlRailsApiSchema.subscriptions.trigger("newLink", {}, self)
-    end
+  def notify_subscriber_of_addition
+    GraphqlRailsApiSchema.subscriptions.trigger('newLink', {}, self)
+  end
 end

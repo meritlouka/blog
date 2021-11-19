@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 module Mutations
@@ -20,7 +22,7 @@ module Mutations
           data = json['data']['createReaction']
 
           expect(data).to include(
-            "reaction" => {
+            'reaction' => {
               'name' => Reaction.last.name
             }
           )

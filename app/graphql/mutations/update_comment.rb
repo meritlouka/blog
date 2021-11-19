@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class UpdateComment < BaseMutation
     field :comment, Types::CommentType, null: false
@@ -11,7 +13,7 @@ module Mutations
       if saved
         {
           comment: comment,
-          errors: [],
+          errors: []
         }
       else
         {

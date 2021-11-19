@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class DeletePost < BaseMutation
     field :success, String, null: true
@@ -7,15 +9,15 @@ module Mutations
 
     def resolve(postId:)
       post = Post.find(postId)
-      if post && post.delete
+      if post&.delete
         {
           success: true,
-          errors: [],
+          errors: []
         }
       else
         {
           success: false,
-          errors: "Not Found"
+          errors: 'Not Found'
         }
       end
     end

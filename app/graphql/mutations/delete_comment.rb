@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class DeleteComment < BaseMutation
     field :success, String, null: true
@@ -7,15 +9,15 @@ module Mutations
 
     def resolve(commentId:)
       comment = Comment.find(commentId)
-      if comment && comment.delete
+      if comment&.delete
         {
           success: true,
-          errors: [],
+          errors: []
         }
       else
         {
           success: false,
-          errors: "Not Found"
+          errors: 'Not Found'
         }
       end
     end

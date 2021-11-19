@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 module Mutations
@@ -8,20 +10,20 @@ module Mutations
           user = create(:user)
           post = create(:post)
           expect do
-            post '/graphql', params: { query: query(postId: post.id, body: "body Comment") }
+            post '/graphql', params: { query: query(postId: post.id, body: 'body Comment') }
           end.to change { Comment.count }.by(1)
         end
 
         it 'returns a comment' do
           user = create(:user)
           post = create(:post)
-          post '/graphql', params: { query: query(postId: post.id, body: "body Comment") }
+          post '/graphql', params: { query: query(postId: post.id, body: 'body Comment') }
           json = JSON.parse(response.body)
           data = json['data']['createComment']
 
           expect(data).to include(
-            "comment" => {
-              'body'            => 'body Comment',
+            'comment' => {
+              'body' => 'body Comment'
             }
           )
         end

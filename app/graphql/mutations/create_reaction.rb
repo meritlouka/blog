@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class CreateReaction < BaseMutation
     field :reaction, Types::ReactionType, null: false
@@ -12,7 +14,7 @@ module Mutations
       if reaction.save
         {
           reaction: reaction,
-          errors: [],
+          errors: []
         }
       else
         {

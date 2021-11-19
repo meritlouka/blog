@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 module Mutations
@@ -23,8 +25,8 @@ module Mutations
 
           expect(data).to include(
             {
-              'success'     => 'true',
-              'errors'     => "[]"
+              'success' => 'true',
+              'errors' => '[]'
             }
           )
         end

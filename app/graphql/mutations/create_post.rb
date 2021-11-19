@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mutations
   class CreatePost < BaseMutation
     field :post, Types::PostType, null: false
@@ -9,9 +11,10 @@ module Mutations
       user = User.first
       post = user.posts.new(title: title, body: body)
       if post.save
+        # BlogSchema.subscriptions.trigger("postAdded", {}, post)
         {
           post: post,
-          errors: [],
+          errors: []
         }
       else
         {
