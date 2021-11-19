@@ -7,6 +7,7 @@ ruby '2.6.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.0.4', '>= 6.0.4.1'
+gem 'redis', '~> 3.0'
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
 # Use Puma as the app server
@@ -30,8 +31,8 @@ gem 'rack-cors'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'faker'
   gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
 end
 
