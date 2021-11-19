@@ -13,7 +13,7 @@ module Mutations
       saved = post.update(title: title, body: body)
 
       if saved
-        BlogSchema.subscriptions.trigger('postUpdated', {}, post)
+        #BlogSchema.subscriptions.trigger('postUpdated', {}, post)
         {
           post: post,
           errors: []
