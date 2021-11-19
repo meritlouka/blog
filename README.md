@@ -5,21 +5,33 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+1- Setup the project
+```
+docker-compose build
+```
+2- Inside the container
+```
+docker exec -it blog_app_1 /bin/bash
+```
+3- Create Database
+```
+bundle exec rake db:create
+```
+4- Migrate Database
+```
+bundle exec rake db:migrate
+```
+5- Seed Database
+```
+bundle exec rake db:seed
+```
+6- Run test cases
+```
+bundle exec rspec
+```
 
-* System dependencies
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 ```
 * ...
 # 1 - Fetch / list all posts made by one user
@@ -31,14 +43,12 @@ Things you may want to cover:
 #     }
 #   }
 # }
-* ...
 # 2 - Fetch / display a single post
 # query{
 #   posts(id: 1){
 #     id title body
 #   }
 # }
-* ...
 #3 - Create, update, and delete posts
 # mutation {
 #     createPost(
