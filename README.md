@@ -1,37 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Blog prototype using graphql and mysql:-
 
-Things you may want to cover:
-
-1- Setup the project
+Setup the project
 ```
 docker-compose build
 ```
-2- Inside the container
+Raise the containers
+```
+docker-compose up
+```
+To Enter Inside the container
 ```
 docker exec -it blog_app_1 /bin/bash
 ```
-3- Create Database
+Create Database
 ```
 bundle exec rake db:create
 ```
-4- Migrate Database
+Migrate Database
 ```
 bundle exec rake db:migrate
 ```
-5- Seed Database
+Seed Database
 ```
 bundle exec rake db:seed
 ```
-6- Run test cases
+Run test cases
 ```
 bundle exec rspec
 ```
 
 
-
+Created End Points:-
 ```
 * ...
 # 1 - Fetch / list all posts made by one user
@@ -174,3 +175,5 @@ bundle exec rspec
 # }
 
 ```
+Todo:-
+Live Updates on post changes
