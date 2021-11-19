@@ -3,13 +3,14 @@
 module Mutations
   class UpdateComment < BaseMutation
     field :comment, Types::CommentType, null: false
+    field :errors, String, null: false
 
     argument :commentId, Integer, required: true
     argument :body, String, required: true
 
     def resolve(commentId: commentId, body: body)
       comment = Comment.find(commentId)
-      saved = comment.update(body: body)
+      saved = comment&.update(body: body)
       if saved
         {
           comment: comment,

@@ -3,6 +3,7 @@
 module Mutations
   class CreatePost < BaseMutation
     field :post, Types::PostType, null: false
+    field :errors, String, null: false
 
     argument :title, String, required: true
     argument :body, String, required: true
