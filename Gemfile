@@ -29,8 +29,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'rack-cors'
 
 group :development, :test do
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'
@@ -42,6 +40,7 @@ group :development do
   gem 'graphiql-rails'
   gem 'listen', '~> 3.2'
   gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
